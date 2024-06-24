@@ -7,9 +7,8 @@
 # sure your domain's A/AAAA DNS records are properly pointed to
 # this machine's public IP, then replace ":80" below with your
 # domain name.
-
 {
-    acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
+	acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
 }
 
 lapre.com,
@@ -29,6 +28,12 @@ www.lapre.com {
 
 whoami.lapre.com {
 	reverse_proxy localhost:2400
+}
+
+paperless.lapre.com {
+	reverse_proxy localhost:8000 {
+		header_down Referrer-Policy "strict-origin-when-cross-origin"
+	}
 }
 
 # Refer to the Caddy docs for more information:
