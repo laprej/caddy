@@ -1,0 +1,13 @@
+services:
+  whoami:
+    # A container that exposes an API to show its IP address
+    image: traefik/whoami
+    restart: unless-stopped
+    ports:
+      - 2400:80
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
