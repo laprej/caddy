@@ -18,12 +18,6 @@ www.lapre.com {
 
 	# Enable the static file server.
 	file_server
-
-	# Another common task is to set up a reverse proxy:
-	# reverse_proxy localhost:8080
-
-	# Or serve a PHP site through php-fpm:
-	# php_fastcgi localhost:9000
 }
 
 whoami.lapre.com {
