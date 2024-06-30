@@ -1,0 +1,15 @@
+sources:
+  caddy:
+    type: "docker_logs"
+
+sinks:
+  better_stack:
+    type: "http"
+    method: "post"
+    inputs: ["caddy"]
+    uri: "https://in.logs.betterstack.com/"
+    encoding:
+      codec: "json"
+    auth:
+      strategy: "bearer"
+      token: ${TOKEN}
