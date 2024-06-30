@@ -22,11 +22,11 @@ www.lapre.com {
 }
 
 whoami.lapre.com {
-	reverse_proxy localhost:2400
+	reverse_proxy whoami
 }
 
 paperless.lapre.com {
-	reverse_proxy localhost:8000 {
+	reverse_proxy paperless:8000 {
 		header_down Referrer-Policy "strict-origin-when-cross-origin"
 	}
 }

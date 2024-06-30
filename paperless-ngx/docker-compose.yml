@@ -47,16 +47,19 @@ services:
       POSTGRES_USER: paperless
       POSTGRES_PASSWORD: paperless
 
-  webserver:
+  paperless:
     image: ghcr.io/paperless-ngx/paperless-ngx:2.10.2
     restart: unless-stopped
+    networks:
+      - proxy
+      - default
     depends_on:
       - db
       - broker
       - gotenberg
       - tika
-    ports:
-      - 8000:8000
+    # ports:
+    #   - 8000:8000
     volumes:
       - data:/usr/src/paperless/data
       - media:/usr/src/paperless/media
@@ -90,3 +93,7 @@ volumes:
   media:
   pgdata:
   redisdata:
+
+networks:
+  proxy:
+    external: true
