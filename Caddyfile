@@ -1,36 +1,13 @@
-# The Caddyfile is an easy way to configure your Caddy web server.
-#
-# Unless the file starts with a global options block, the first
-# uncommented line is always the address of your site.
-#
-# To use your own domain name (with automatic HTTPS), first make
-# sure your domain's A/AAAA DNS records are properly pointed to
-# this machine's public IP, then replace ":80" below with your
-# domain name.
-{
-	# debug
-	# acme_ca https://acme-staging-v02.api.letsencrypt.org/directory
-	email justin@lapre.com
+(inttls) {
+	tls /certs/int.lapre.com/fullchain.cer /certs/int.lapre.com/int.lapre.com.key
 }
 
-lapre.com,
-www.lapre.com {
-	# Set this path to your site's directory.
-	root * /usr/share/caddy
-
-	# Enable the static file server.
-	file_server
-}
-
-whoami.lapre.com {
-	reverse_proxy whoami
-}
-
-paperless.lapre.com {
-	reverse_proxy paperless:8000 {
-		header_down Referrer-Policy "strict-origin-when-cross-origin"
+portainer.int.lapre.com {
+	import inttls
+	reverse_proxy localhost:9443 {
+		transport http {
+			tls
+			tls_insecure_skip_verify
+		}
 	}
 }
-
-# Refer to the Caddy docs for more information:
-# https://caddyserver.com/docs/caddyfile
