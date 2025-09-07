@@ -1,10 +1,10 @@
-(inttls) {
-	tls /certs/int.lapre.com/fullchain.cer /certs/int.lapre.com/int.lapre.com.key
+{
+	acme_dns cloudflare {$CLOUDFLARE_API_TOKEN}
+	auto_https prefer_wildcard
 }
 
 portainer.int.lapre.com {
-	import inttls
-	reverse_proxy localhost:9443 {
+	reverse_proxy portainer:9443 {
 		transport http {
 			tls
 			tls_insecure_skip_verify
