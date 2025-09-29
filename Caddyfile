@@ -15,3 +15,7 @@ portainer.int.lapre.com {
 jelly.int.lapre.com {
 	reverse_proxy jellyfin:8096
 }
+
+sab.int.lapre.com {
+	reverse_proxy sabnzbd:8080
+}
