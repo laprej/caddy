@@ -6,12 +6,12 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - TZ=Etc/UTC
+      - TZ=America/New_York
       - JELLYFIN_PublishedServerUrl=http://192.168.0.5 #optional
     volumes:
-      - /path/to/jellyfin/library:/config
-      - /path/to/tvseries:/data/tvshows
-      - /path/to/movies:/data/movies
+      - /mnt/tank/jellyfin/library:/config
+      - /mnt/tank/jellyfin/tvseries:/data/tvshows
+      - /mnt/tank/jellyfin/movies:/data/movies
     ports:
       - 8096:8096
       - 8920:8920 #optional
@@ -21,5 +21,5 @@ services:
 
 networks:
   default:
-    name: $DOCKER_MY_NETWORK
+    name: caddy_net
     external: true
