@@ -1,0 +1,21 @@
+---
+services:
+  sabnzbd:
+    image: lscr.io/linuxserver/sabnzbd:4.5.5-ls242
+    container_name: sabnzbd
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /mnt/tank/sabnzbd/config:/config
+      - /mnt/tank/sabnzbd/incomplete:/incomplete-downloads #optional
+      - /mnt/tank/sabnzbd/downloads:/downloads #optional
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+
+networks:
+  default:
+    name: caddy_net
+    external: true
