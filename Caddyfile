@@ -3,13 +3,8 @@
 	auto_https prefer_wildcard
 }
 
-portainer.int.lapre.com {
-	reverse_proxy portainer:9443 {
-		transport http {
-			tls
-			tls_insecure_skip_verify
-		}
-	}
+whoami.int.lapre.com {
+	reverse_proxy whoami
 }
 
 jelly.int.lapre.com {
