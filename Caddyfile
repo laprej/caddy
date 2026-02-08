@@ -11,6 +11,8 @@ jelly.int.lapre.com {
 	reverse_proxy jellyfin:8096
 }
 
+# had to add sab.int.lapre.com to host_whitelist in
+# /mnt/.ix-apps/app_mounts/sabnzbd/config
 sab.int.lapre.com {
-	reverse_proxy sabnzbd:8080
+	reverse_proxy sabnzbd:30055
 }
