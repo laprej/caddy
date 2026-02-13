@@ -16,3 +16,7 @@ jelly.int.lapre.com {
 sab.int.lapre.com {
 	reverse_proxy sabnzbd:30055
 }
+
+paper.int.lapre.com {
+	reverse_proxy paperless:30070
+}
