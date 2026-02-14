@@ -18,5 +18,7 @@ sab.int.lapre.com {
 }
 
 paper.int.lapre.com {
-	reverse_proxy paperless:30070
+	reverse_proxy paperless:30070 {
+		header_down Referrer-Policy "strict-origin-when-cross-origin"
+	}
 }
