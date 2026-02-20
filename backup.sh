@@ -3,7 +3,8 @@
 NOW=$(date  +"%Y-%m-%dT%H%M%S%z")
 
 SOURCE=/mnt/.ix-apps
-DEST=foobar:com-lapre-foobar
+# DEST=foobar:com-lapre-foobar
+DEST=secret:
 
 rclone sync $SOURCE ${DEST}/curr \
     --fast-list `# useful on bucket-remotes like B2` \
