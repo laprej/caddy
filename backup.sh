@@ -12,4 +12,5 @@ rclone sync $SOURCE ${DEST}/curr \
     --delete-excluded \
     --links `# translate to .rclonelink - Optional` \
     --progress -v \
+    --log-file /var/log/rclone-backup.log \
     --backup-dir ${DEST}/back/"${NOW}" `# IMPORTANT`
