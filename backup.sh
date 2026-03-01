@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 NOW=$(date  +"%Y-%m-%dT%H%M%S%z")
 
 SOURCE=/mnt/.ix-apps
