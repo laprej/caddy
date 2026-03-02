@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -euo pipefail
+set -x
 
 NOW=$(date  +"%Y-%m-%dT%H%M%S%z")
 
