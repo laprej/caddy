@@ -4,35 +4,15 @@ set -euo pipefail
 
 NOW=$(date  +"%Y-%m-%dT%H%M%S%z")
 
-# ---- CONFIG ----
-DATASET="tank/ix-apps"
-SOURCE="/mnt/.ix-apps"
-SNAPNAME="rclone-backup-${NOW}"
-SNAPPATH="${SOURCE}/.zfs/snapshot/${SNAPNAME}"
-DEST="secret2:"
-LOGFILE="/var/log/rclone-backup.log"
+SOURCE=/mnt/.ix-apps
+# DEST=foobar:com-lapre-foobar
+DEST=secret2:
 
-# ---- CREATE SNAPSHOT ----
-echo "Creating ZFS snapshot: ${DATASET}@${SNAPNAME}"
-zfs snapshot "${DATASET}@${SNAPNAME}"
-
-# ---- RUN BACKUP FROM SNAPSHOT ----
-echo "Starting rclone sync from snapshot path: ${SNAPPATH}"
-
-if rclone sync "${SNAPPATH}" "${DEST}/curr" \
+rclone sync $SOURCE ${DEST}/curr \
     --fast-list `# useful on bucket-remotes like B2` \
     --exclude "/docker/**" --exclude "/truenas_catalog/**" `# Plus any other excludes` \
     --delete-excluded \
     --links `# translate to .rclonelink - Optional` \
     --progress -v \
-    --log-file "${LOGFILE}" \
-    --transfers 8 \
-    --checkers 16 \
+    --log-file /var/log/rclone-backup.log \
     --backup-dir ${DEST}/back/"${NOW}" `# IMPORTANT`
-then
-    echo "Backup completed successfully. Destroying snapshot."
-    zfs destroy "${DATASET}@${SNAPNAME}"
-else
-    echo "Backup FAILED. Snapshot retained for inspection: ${DATASET}@${SNAPNAME}"
-    exit 1
-fi
