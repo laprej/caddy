@@ -11,12 +11,12 @@ jelly.int.lapre.com {
 	reverse_proxy jellyfin:8096
 }
 
-# had to add sab.int.lapre.com to host_whitelist in
-# /mnt/.ix-apps/app_mounts/sabnzbd/config
+# had to add sab.int.lapre.com to host_whitelist
 sab.int.lapre.com {
 	reverse_proxy sabnzbd:30055
 }
 
+# had to set PAPERLESS_URL=https://paper.int.lapre.com
 paper.int.lapre.com {
 	reverse_proxy paperless:30070 {
 		header_down Referrer-Policy "strict-origin-when-cross-origin"
