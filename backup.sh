@@ -5,7 +5,7 @@ set -x
 
 NOW=$(date  +"%Y-%m-%dT%H%M%S%z")
 
-SOURCE=/mnt/.ix-apps
+SOURCE=/mnt/tank/backup
 # DEST=foobar:com-lapre-foobar
 DEST=secret2:
 
