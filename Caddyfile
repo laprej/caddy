@@ -22,3 +22,7 @@ paper.int.lapre.com {
 		header_down Referrer-Policy "strict-origin-when-cross-origin"
 	}
 }
+
+radarr.int.lapre.com {
+	reverse_proxy radarr:30025
+}
