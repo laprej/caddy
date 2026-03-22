@@ -26,3 +26,7 @@ paper.int.lapre.com {
 radarr.int.lapre.com {
 	reverse_proxy radarr:30025
 }
+
+sonarr.int.lapre.com {
+	reverse_proxy sonarr:30113
+}
