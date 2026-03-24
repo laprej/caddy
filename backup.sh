@@ -9,8 +9,8 @@ DATASET=tank/backup
 SOURCE=/mnt/tank/backup
 SNAPNAME="rclone-backup-${NOW}"
 SNAPPATH="${SOURCE}/.zfs/snapshot/${SNAPNAME}"
-DEST=smar-backup:smar-backup
-# DEST=secret2:
+# DEST=smar-backup:smar-backup
+DEST=secret2:
 LOGFILE="/var/log/rclone-backup.log"
 
 # ---- CREATE SNAPSHOT ----
