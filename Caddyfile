@@ -30,3 +30,7 @@ radarr.int.lapre.com {
 sonarr.int.lapre.com {
 	reverse_proxy sonarr:30113
 }
+
+home.int.lapre.com {
+	reverse_proxy homepage:30054
+}
