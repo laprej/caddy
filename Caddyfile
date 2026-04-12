@@ -34,3 +34,7 @@ sonarr.int.lapre.com {
 home.int.lapre.com {
 	reverse_proxy homepage:30054
 }
+
+inv.int.lapre.com {
+	reverse_proxy invidious:31008
+}
