@@ -38,3 +38,9 @@ home.int.lapre.com {
 inv.int.lapre.com {
 	reverse_proxy invidious:31008
 }
+
+# add truenas on port 81, not 80
+# Caddy wants 80/443
+nas.int.lapre.com {
+	reverse_proxy 192.168.33.71:81
+}
