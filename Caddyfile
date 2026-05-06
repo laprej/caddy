@@ -1,4 +1,5 @@
 {
+	tls /certs/int.lapre.com/fullchain.cer /certs/int.lapre.com/int.lapre.com.key
 	acme_dns cloudflare {$CLOUDFLARE_API_TOKEN}
 	auto_https prefer_wildcard
 }
