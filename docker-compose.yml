@@ -10,6 +10,7 @@ services:
       - "443:443"
     environment:
       - MY_DOMAIN
+      - TS_DOMAIN
       - CLOUDFLARE_API_TOKEN
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro

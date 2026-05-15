@@ -1,14 +1,22 @@
 {
-	tls /certs/int.lapre.com/fullchain.cer /certs/int.lapre.com/int.lapre.com.key
 	acme_dns cloudflare {$CLOUDFLARE_API_TOKEN}
 	auto_https prefer_wildcard
+
+	tailscale {
+		auth_key <insert token>
+	}
 }
 
 whoami.int.lapre.com {
 	reverse_proxy whoami
 }
 
-jelly.int.lapre.com {
+jelly.{$MY_DOMAIN} {
+	reverse_proxy jellyfin:8096
+}
+
+jelly.{$TS_DOMAIN} {
+	bind tailscale/jelly
 	reverse_proxy jellyfin:8096
 }
 
