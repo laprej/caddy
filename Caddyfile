@@ -21,7 +21,13 @@ jelly.{$TS_DOMAIN} {
 }
 
 # had to add sab.int.lapre.com to host_whitelist
-sab.int.lapre.com {
+sab.{$MY_DOMAIN} {
+	reverse_proxy sabnzbd:30055
+}
+
+# had to add sab.tail3b214.ts.net to host_whitelist
+sab.{$TS_DOMAIN} {
+	bind tailscale/sab
 	reverse_proxy sabnzbd:30055
 }
 
