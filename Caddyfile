@@ -7,7 +7,7 @@
 	}
 }
 
-whoami.int.lapre.com {
+whoami.{$MY_DOMAIN} {
 	reverse_proxy whoami
 }
 
@@ -20,42 +20,42 @@ jelly.{$TS_DOMAIN} {
 	reverse_proxy jellyfin:8096
 }
 
-# had to add sab.int.lapre.com to host_whitelist
+# had to add sab.{$MY_DOMAIN} to host_whitelist
 sab.{$MY_DOMAIN} {
 	reverse_proxy sabnzbd:30055
 }
 
-# had to add sab.tail3b214.ts.net to host_whitelist
+# had to add sab.{$TS_DOMAIN} to host_whitelist
 sab.{$TS_DOMAIN} {
 	bind tailscale/sab
 	reverse_proxy sabnzbd:30055
 }
 
-# had to set PAPERLESS_URL=https://paper.int.lapre.com
-paper.int.lapre.com {
+# had to set PAPERLESS_URL=https://paper.{$MY_DOMAIN}
+paper.{$MY_DOMAIN} {
 	reverse_proxy paperless:30070 {
 		header_down Referrer-Policy "strict-origin-when-cross-origin"
 	}
 }
 
-radarr.int.lapre.com {
+radarr.{$MY_DOMAIN} {
 	reverse_proxy radarr:30025
 }
 
-sonarr.int.lapre.com {
+sonarr.{$MY_DOMAIN} {
 	reverse_proxy sonarr:30113
 }
 
-home.int.lapre.com {
+home.{$MY_DOMAIN} {
 	reverse_proxy homepage:30054
 }
 
-inv.int.lapre.com {
+inv.{$MY_DOMAIN} {
 	reverse_proxy invidious:31008
 }
 
 # add truenas on port 81, not 80
 # Caddy wants 80/443
-nas.int.lapre.com {
+nas.{$MY_DOMAIN} {
 	reverse_proxy 192.168.33.71:81
 }
