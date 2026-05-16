@@ -12,6 +12,7 @@ services:
       - MY_DOMAIN
       - TS_DOMAIN
       - CLOUDFLARE_API_TOKEN
+      - TAILSCALE_AUTH_KEY
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - ./caddy_data:/data

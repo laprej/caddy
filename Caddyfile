@@ -3,7 +3,7 @@
 	auto_https prefer_wildcard
 
 	tailscale {
-		auth_key <insert token>
+		auth_key {$TAILSCALE_AUTH_KEY}
 	}
 }
 
