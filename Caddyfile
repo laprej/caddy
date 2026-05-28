@@ -45,6 +45,11 @@ radarr.{$MY_DOMAIN} {
 	reverse_proxy radarr:30025
 }
 
+radarr.{$TS_DOMAIN} {
+	bind tailscale/radarr
+	reverse_proxy radarr:30025
+}
+
 sonarr.{$MY_DOMAIN} {
 	reverse_proxy sonarr:30113
 }
