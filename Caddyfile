@@ -54,6 +54,11 @@ sonarr.{$MY_DOMAIN} {
 	reverse_proxy sonarr:30113
 }
 
+sonarr.{$TS_DOMAIN} {
+	bind tailscale/sonarr
+	reverse_proxy sonarr:30113
+}
+
 home.{$MY_DOMAIN} {
 	reverse_proxy homepage:30054
 }
