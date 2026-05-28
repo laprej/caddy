@@ -7,6 +7,9 @@
 	}
 }
 
+*.{$MY_DOMAIN} {
+}
+
 whoami.{$MY_DOMAIN} {
 	reverse_proxy whoami
 }
