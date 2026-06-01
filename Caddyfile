@@ -18,19 +18,8 @@ jelly.{$MY_DOMAIN} {
 	reverse_proxy jellyfin:8096
 }
 
-jelly.{$TS_DOMAIN} {
-	bind tailscale/jelly
-	reverse_proxy jellyfin:8096
-}
-
 # had to add sab.{$MY_DOMAIN} to host_whitelist
 sab.{$MY_DOMAIN} {
-	reverse_proxy sabnzbd:30055
-}
-
-# had to add sab.{$TS_DOMAIN} to host_whitelist
-sab.{$TS_DOMAIN} {
-	bind tailscale/sab
 	reverse_proxy sabnzbd:30055
 }
 
@@ -45,17 +34,7 @@ radarr.{$MY_DOMAIN} {
 	reverse_proxy radarr:30025
 }
 
-radarr.{$TS_DOMAIN} {
-	bind tailscale/radarr
-	reverse_proxy radarr:30025
-}
-
 sonarr.{$MY_DOMAIN} {
-	reverse_proxy sonarr:30113
-}
-
-sonarr.{$TS_DOMAIN} {
-	bind tailscale/sonarr
 	reverse_proxy sonarr:30113
 }
 
