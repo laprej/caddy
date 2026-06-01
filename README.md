@@ -13,3 +13,7 @@ networks:
 ```
 
 If the App does not exist in the TrueNAS catalog, add the docker-compose.yaml file.
+
+## For Tailscale app
+
+Use --advertise-routes=192.168.33.0/24 (or whatever TrueNAS subnet is).
